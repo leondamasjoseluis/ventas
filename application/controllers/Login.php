@@ -12,11 +12,13 @@ class Login extends CI_Controller {
 	public function loginError()
 	{
 		$data = array(
-				'err' => '1'
+				'err' => '1',
 				'error' => 'Usuario Incorrecto'
 			);
+
 		$this->load->view('log_in', $data);
 	}
+
 	public function validarUsuario()
 	{
 		$Usuario->$this->input->post('usuario');
@@ -31,13 +33,22 @@ class Login extends CI_Controller {
 			$datosUsuario = array(
 						'id' => $row["id"],
 						'nombre' => $row["nombre"],
-						'apellido' => $row["apellido"];
+						'apellido' => $row["apellido"],
 						'usuario' => $row["usuario"]
 				);
 			$this->session->set_userdata($datosUsuario);/*de donde viene session y set_user*/
 
-			redirect();
+			redirect('inicio');
 		}
+		else
+		{
+			redirect('log_in/loginError');/*loginerrror*/
+		}
+	}
+	public function logout()
+	{
+		$this->session->session_destroy();
+		redirect('log_in');
 	}
 
 }

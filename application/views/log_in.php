@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label>Username</label>
                       </div>
                       <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                        <input type="password" id="pass" class="form-text" required>
+                        <input type="password" id="pass"class="form-text" required>
                         <span class="bar"></span>
                         <label>Password</label>
                       </div>
